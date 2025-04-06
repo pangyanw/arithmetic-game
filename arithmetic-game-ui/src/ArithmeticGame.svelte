@@ -13,9 +13,16 @@
   async function submitAnswer() {
     if (parseInt(userAnswer) === question.answer) {
       result = 'Correct';
+      playSound('yes.mp3');
     } else {
       result = `The answer is ${question.answer}`;
+      playSound('dumb.mp3');
     }
+  }
+
+  function playSound(soundFile) {
+    const audio = new Audio(`sounds/${soundFile}`);
+    audio.play();
   }
 </script>
 
